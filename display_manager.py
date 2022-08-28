@@ -1,5 +1,6 @@
 import sys
-from os import *
+import time
+from os import system
 
 
 class DisplayManager:
@@ -23,10 +24,15 @@ class DisplayManager:
         else:
             print("Don't eat more tomato")
 
+    def clean_terminal(self):
+        system('clear')
+
 
 if __name__ == "__main__":
     my_display = DisplayManager()
     my_display.create_initial_string()
     for i in range(29):
-        my_display.eat_tomato_string()
+        time.sleep(1)
+        my_display.clean_terminal()
         print(*my_display.list_to_display)
+        my_display.eat_tomato_string()
